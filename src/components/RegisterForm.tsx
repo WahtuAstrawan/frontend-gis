@@ -11,9 +11,10 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Toaster } from "./ui/sonner";
 import { toast } from "sonner";
-import { apiClient, delay } from "@/lib/utils";
+import { delay } from "@/lib/utils";
 import { UserResponse } from "@/lib/types";
 import { useRouter } from "next/navigation";
+import { register } from "@/lib/api";
 
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -37,7 +38,7 @@ export default function RegisterForm() {
         `Account ${response.data.data.username} created successfully`
       );
       console.log("Registration success:", response);
-      await delay(1000);
+      await delay(1500);
       router.replace("/login");
     } catch (error: any) {
       console.error(error);
@@ -50,17 +51,6 @@ export default function RegisterForm() {
       } else {
         toast.error("An unexpected error occurred");
       }
-    }
-  }
-
-  async function register(
-    values: z.infer<typeof registerFormSchema>
-  ): Promise<UserResponse> {
-    try {
-      const result = await apiClient.post("/users", values);
-      return result;
-    } catch (error: any) {
-      throw error;
     }
   }
 

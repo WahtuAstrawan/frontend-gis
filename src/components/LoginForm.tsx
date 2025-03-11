@@ -11,11 +11,10 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Toaster } from "./ui/sonner";
 import { toast } from "sonner";
-import { apiClient } from "@/lib/utils";
 import { UserResponse } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import { useEffect } from "react";
+import { login } from "@/lib/api";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -49,21 +48,6 @@ export default function LoginForm() {
       }
     }
   }
-
-  async function login(
-    values: z.infer<typeof loginFormSchema>
-  ): Promise<UserResponse> {
-    try {
-      const result = await apiClient.post("/users/login", values);
-      return result;
-    } catch (error: any) {
-      throw error;
-    }
-  }
-
-  useEffect(() => {
-    Cookies.remove("token");
-  }, []);
 
   return (
     <div className="w-full max-w-sm mx-auto">

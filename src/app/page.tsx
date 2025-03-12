@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -6,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import appLogo from "../../public/app-logo.png";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -24,7 +22,12 @@ export default function Welcome() {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex justify-center">
-          <Image src={appLogo} height={250} width={250} alt="GIS App Logo" />
+          <img
+            src="/app-logo.png"
+            height={250}
+            width={250}
+            alt="GIS App Logo"
+          />
         </CardContent>
       </Card>
 

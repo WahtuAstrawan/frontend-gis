@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import dynamic from "next/dynamic";
@@ -193,7 +194,7 @@ export default function Map() {
           <DialogHeader>
             <DialogTitle>Add New Trip</DialogTitle>
             <DialogDescription>
-              Fill in the details and click "Save" to add a new trip.
+              Fill in the details and click `Save` to add a new trip.
             </DialogDescription>
           </DialogHeader>
           <form

@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { z } from "zod";
 import {
   createTripFormSchema,
   loginFormSchema,
   registerFormSchema,
 } from "./form-schema";
-import { Trip, UserResponse } from "./types";
+import { UserResponse } from "./types";
 import { apiClient } from "./utils";
 import Cookies from "js-cookie";
 

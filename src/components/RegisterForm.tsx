@@ -16,6 +16,7 @@ import { delay } from "@/lib/utils";
 import { UserResponse } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { register } from "@/lib/api";
+import Link from "next/link";
 
 export default function RegisterForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -111,10 +112,16 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="text-md p-5 w-full">
+          <Button type="submit" className="text-md p-5 w-full cursor-pointer">
             Register
           </Button>
         </form>
+        <div className="flex justify-center items-center gap-2 mt-6">
+          <p>Already have an account?</p>
+          <Link href="/login" className="text-blue-500 hover:underline">
+            Login
+          </Link>
+        </div>
       </Form>
       <Toaster position="bottom-center" richColors />
     </div>

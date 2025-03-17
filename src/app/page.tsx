@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { MapPin } from "lucide-react";
 
 export default function Welcome() {
   return (
@@ -22,12 +23,7 @@ export default function Welcome() {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex justify-center">
-          <img
-            src="/app-logo.png"
-            height={250}
-            width={250}
-            alt="GIS App Logo"
-          />
+          <MapPin size={250} color="#ea5353" strokeWidth={1.5} />
         </CardContent>
       </Card>
 

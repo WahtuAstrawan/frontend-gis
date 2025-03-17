@@ -4,6 +4,7 @@ import {
   createTripFormSchema,
   loginFormSchema,
   registerFormSchema,
+  updateTripFormSchema,
 } from "./form-schema";
 import { UserResponse } from "./types";
 import { apiClient } from "./utils";
@@ -49,6 +50,21 @@ export async function createTrip(
 ): Promise<any> {
   try {
     const result = await apiClient.post("/trips", values, {
+      headers: {
+        Authorization: Cookies.get("token"),
+      },
+    });
+    return result;
+  } catch (error: any) {
+    throw error;
+  }
+}
+
+export async function updateTrip(
+  values: z.infer<typeof updateTripFormSchema>
+): Promise<any> {
+  try {
+    const result = await apiClient.put(`/trips/${values.id}`, values, {
       headers: {
         Authorization: Cookies.get("token"),
       },

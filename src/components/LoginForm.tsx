@@ -16,6 +16,7 @@ import { UserResponse } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { login } from "@/lib/api";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -94,10 +95,16 @@ export default function LoginForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="text-md p-5 w-full">
+          <Button type="submit" className="text-md p-5 w-full cursor-pointer">
             Login
           </Button>
         </form>
+        <div className="flex justify-center items-center gap-2 mt-6">
+          <p>Not have an account?</p>
+          <Link href="/register" className="text-blue-500 hover:underline">
+            Register
+          </Link>
+        </div>
       </Form>
       <Toaster position="bottom-center" richColors />
     </div>

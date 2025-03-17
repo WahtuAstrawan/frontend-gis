@@ -34,9 +34,27 @@ export const createTripFormSchema = z.object({
   description: z
     .string()
     .min(1, { message: "Description must be at least 1 characters." })
-    .max(1001, {
+    .max(1000, {
       message: "Description must be not more than 1000 characters.",
     }),
+  latitude: z.number(),
+  longitude: z.number(),
+});
+
+export const updateTripFormSchema = z.object({
+  id: z.number(),
+  title: z
+    .string()
+    .min(1, { message: "Title must be at least 1 characters." })
+    .max(100, { message: "Title must be not more than 100 characters." })
+    .optional(),
+  description: z
+    .string()
+    .min(1, { message: "Description must be at least 1 characters." })
+    .max(1000, {
+      message: "Description must be not more than 1000 characters.",
+    })
+    .optional(),
   latitude: z.number(),
   longitude: z.number(),
 });
